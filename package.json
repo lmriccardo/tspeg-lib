@@ -1,13 +1,29 @@
 {
   "name": "tspeg-lib",
   "version": "0.0.1",
-  "description": "",
-  "main": "index.js",
+  "author": "lmriccardo",
+  "description": "Typescript library for Encoding/Decoding JPEG",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lmriccardo/tspeg-lib.git"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "jpeg",
+    "compression",
+    "images",
+    "library",
+    "encoding",
+    "decoding"
+  ],
   "license": "MIT",
-  "type": "commonjs"
+  "devDependencies": {
+    "@tsconfig/node22": "^22.0.0",
+    "@types/node": "^22.13.11",
+    "@types/typescript": "^0.4.29",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.2"
+  }
 }
