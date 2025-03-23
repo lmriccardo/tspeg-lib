@@ -16,8 +16,8 @@
  * 
  * @returns The zigzag matrix
  */
-export const ToZigZag = (values: number[], nr: number, nc: number) 
-: number[][] => 
+export const ToZigZag = (values: number[], nr: number, nc: number)
+  : number[][] => 
 {
   // Check if the total number of values can fit the matrix
   if (values.length !== nr * nc) {
@@ -25,7 +25,7 @@ export const ToZigZag = (values: number[], nr: number, nc: number)
       `${values.length} do not fit matrix dimension ${nr * nc}.`);
   }
 
-  const zigzag : number[][] = Array.from({ length: nr }, () => Array(nc).fill(0));
+  const zigzag: number[][] = Array.from({ length: nr }, () => Array(nc).fill(0));
   const min_dimension = Math.min(nr - 1, nc - 1); // Take the min dimension
 
   let direction = -1; // The update position direction
@@ -68,7 +68,7 @@ export const ToZigZag = (values: number[], nr: number, nc: number)
     }
 
     // Update the direction based on the parity of the current diagonal sum.
-    direction = (-1)**(diag_sum + 1);
+    direction = (-1) ** (diag_sum + 1);
 
     // Also updates the drop down counter if the sum is less than min dimension
     if (diag_sum > min_dimension) drop_down_cnt += 2;
