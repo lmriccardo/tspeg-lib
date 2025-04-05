@@ -1,3 +1,5 @@
+import { BitGenerator } from "../utils/bitutil";
+
 /**
  * Represents a single node in the Huffman Tree. Each node will have two children.
  * The left child is always reachable using a 0 input, while 1 for the rigth one.
@@ -157,5 +159,22 @@ export class JPEGHuffmanTree {
     this.buildHuffmanTree();
   }
 
-  
+  /**
+   * Decodes the input code and returns the corresponding symbol
+   * by diving into the current Huffman Tree.
+   * 
+   * @param code The input code to be decoded
+   * @returns The corresponding symbol
+   */
+  decode(code: number) : number | null {
+    let curr_node: HuffmanNode | null = this.root;
+
+    for (const bit of BitGenerator(code, true)) {
+      curr_node = curr_node!.getNextNode(bit);
+      if (!curr_node) return null;
+    }
+
+    if (!curr_node.isLeaf()) return null;
+    return curr_node.getSymbol();
+  }
 }

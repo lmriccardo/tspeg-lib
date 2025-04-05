@@ -1,4 +1,32 @@
 /**
+ * Converts a vector to a string representation
+ * 
+ * @param values 			 The actual vector with values 
+ * @param x_dim 			 The total number of values in a single row
+ * @param line_prefix  A prefix that preceed each row
+ * 
+ * @returns The vector string representation
+ */
+export const VectorToString = (values: number[], x_dim: number, line_prefix: string): string => 
+{
+  let string_result = '[';
+  for (let index = 0; index < values.length; index++) {
+    if (index % x_dim == 0 && index > 0) {
+      string_result = string_result + `\n${line_prefix}`;
+    }
+
+    if (index < values.length - 1) {
+      string_result += `${values[index]}, `;
+      continue;
+    }
+
+    string_result += `${values[index]}`;
+  }
+
+  return string_result + ']';
+}
+
+/**
  * Transform the input vector into a matrix of dimension (R,C), where
  * R is the number of rows and C is the number of columns in a zig-zag manner.
  * 
